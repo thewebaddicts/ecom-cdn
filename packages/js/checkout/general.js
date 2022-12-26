@@ -110,7 +110,6 @@ function TWACART_countryAndStateChange(elem,lot_id = false){
     TWACART_generateScheduledDelivery($('select[name="lot_'+lot_id+'_state"]').val() , false,'#delivery_date_picker_'+lot_id)
 }
 
-
 function TWACART_billingAddNewAddress(){
     $('#checkout_billing_address').on('change',function(){
         if($(this).val() == "new"){
@@ -124,4 +123,11 @@ function TWACART_billingAddNewAddress(){
         }
     });
 }
-TWACART_billingAddNewAddress();
+
+
+
+
+$( document ).ready(function() {
+    TWACART_billingAddNewAddress();
+});
+

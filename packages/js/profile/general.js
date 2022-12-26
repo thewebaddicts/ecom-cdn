@@ -53,7 +53,7 @@ function TWAPROFILE_initPhoneNumber(){
     });
 }
 
-TWAPROFILE_initPhoneNumber();
+
 
 
 
@@ -212,4 +212,13 @@ function TWAPROFILE_changeAddressLabel(){
         // alert($(this).find('.address_label_select select').val());
     });
 }
-TWAPROFILE_changeAddressLabel();
+
+
+
+
+$( document ).ready(function() {
+    TWAPROFILE_changeAddressLabel();
+    TWAPROFILE_initPhoneNumber();
+});
+
+
