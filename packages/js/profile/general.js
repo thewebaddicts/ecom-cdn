@@ -1,11 +1,11 @@
-function TWAGENERAL_initPhoneNumber(){
+function TWAPROFILE_initPhoneNumber(){
     var Phone = new Array();
     var PhoneInputs = new Array();
 
     $(".phone-field").each(function (PhoneIndex, elem) {
         Phone[PhoneIndex] = $(elem);
 
-        var phone_options = TWAGENERAL_getPhoneOptions(Phone[PhoneIndex] , [
+        var phone_options = TWAPROFILE_getPhoneOptions(Phone[PhoneIndex] , [
             "utilsScript", "allowDropdown" , "autoHideDialCode" , "autoPlaceholder" , "customContainer" , "customPlaceholder", "dropdownContainer",
             "excludeCountries", "formatOnDisplay", "geoIpLookup", "hiddenInput", "initialCountry", "localizedCountries", "nationalMode", "onlyCountries",
             "placeholderNumberType", "preferredCountries", "separateDialCode" ]);
@@ -53,11 +53,11 @@ function TWAGENERAL_initPhoneNumber(){
     });
 }
 
-TWAGENERAL_initPhoneNumber();
+TWAPROFILE_initPhoneNumber();
 
 
 
-function TWAGENERAL_getPhoneOptions(element , options){
+function TWAPROFILE_getPhoneOptions(element , options){
 
     let obj = { "utilsScript" : "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"};
     options.forEach(function(option , index){
@@ -124,7 +124,7 @@ function TWAGENERAL_getArrayAttribute(element , attr_name , fallback){
     return fallback;
 }
 
-function TWAGENERAL_checkZipCode(prefix){
+function TWAPROFILE_checkZipCode(prefix){
     var targetContainer = $('input[name='+prefix+'postal_code]').parents('.twa-ecom-field');
     if($("select[name="+prefix+"country] option:selected").attr('data-zipcode')==0){
         targetContainer.addClass('hidden');
@@ -144,7 +144,7 @@ function TWAGENERAL_checkZipCode(prefix){
     }
 }
 
-function TWAGENERAL_changeState(prefix){
+function TWAPROFILE_changeState(prefix){
 
     var targetContainer = $("select[name='"+prefix+"state'], input[name='"+prefix+"state']").parents('.twa-ecom-field');
     if($("select[name="+prefix+"country] option:selected").attr('data-state')==0){
@@ -176,7 +176,7 @@ function TWAGENERAL_changeState(prefix){
 
 
 
-function TWAGENERAL_changeCity(prefix){
+function TWAPROFILE_changeCity(prefix){
 
     var targetContainer = $("select[name='"+prefix+"city'], input[name='"+prefix+"city']").parents('.twa-ecom-field');
     $.get($("meta[name='prefix']").attr("content")+'/account/addresses/cities/list/',{ 'country_code':$('select[name='+prefix+'country]').val(), 'state': $('select[name='+prefix+'state]').val(), 'prefix': prefix },function(data){
@@ -191,8 +191,25 @@ function TWAGENERAL_changeCity(prefix){
     });
 }
 
-function TWAGENERAL_checkCountryIntelTelInput(val){
+function TWAPROFILE_checkCountryIntelTelInput(val){
     try{
         $('.phone-field').trigger('customBillingAddress',[val]);
     }catch (e){}
 }
+
+
+function TWAPROFILE_changeAddressLabel(){
+    $('.twa-profile-new-address').each(function(){
+        $(this).find('.address_label input').val($(this).find('.address_label_select select').val());
+        $(this).find('.address_label_select select').on('change',function(){
+            if($(this).val()==""){
+                $(this).parents('.twa-profile-new-address').find('.address_label').removeClass('hidden');
+            }else{
+                $(this).parents('.twa-profile-new-address').find('.address_label').addClass('hidden');
+            }
+            $(this).parents('.twa-profile-new-address').find('.address_label input').val($(this).val());
+        });
+        // alert($(this).find('.address_label_select select').val());
+    });
+}
+TWAPROFILE_changeAddressLabel();

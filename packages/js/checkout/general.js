@@ -109,3 +109,19 @@ function TWACART_countryAndStateChange(elem,lot_id = false){
     TWACART_GetDeliveryOtions('#delivery_options_'+lot_id, lot_id , false, $(this).parents('.twa-checkout-delivery-lot').find('input[name="lot_'+lot_id+'_country"]').val() ,  $(this).parents('.twa-checkout-delivery-lot').find('input[name="lot_'+lot_id+'_posta;_code"]').val());
     TWACART_generateScheduledDelivery($('select[name="lot_'+lot_id+'_state"]').val() , false,'#delivery_date_picker_'+lot_id)
 }
+
+
+function TWACART_billingAddNewAddress(){
+    $('#checkout_billing_address').on('change',function(){
+        if($(this).val() == "new"){
+            $('#checkout_billing_address_form').removeClass('hidden');
+            $('#checkout_billing_address_form').find('input').prop("required", true);
+            $('#checkout_billing_address_form').find('select').prop("required", true);
+        }else{
+            $('#checkout_billing_address_form').addClass('hidden');
+            $('#checkout_billing_address_form').find('input').prop("required", false);
+            $('#checkout_billing_address_form').find('select').prop("required", false);
+        }
+    });
+}
+TWACART_billingAddNewAddress();
