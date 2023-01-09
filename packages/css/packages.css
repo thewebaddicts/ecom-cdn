@@ -75,6 +75,10 @@ html, body {
   padding-left: 10px;
   text-decoration: none;
   color: #0F0B0C;
+  transition: 0.3s;
+}
+.twa-checkout-header .right a:hover {
+  color: #AA9828 !important;
 }
 .twa-checkout-header .right a .icon {
   float: left;
@@ -117,6 +121,14 @@ html, body {
 .twa-checkout-header .tabs a.selected {
   opacity: 1;
   border-bottom: 1px solid #0F0B0C;
+}
+@media (max-width: 1199px) {
+  .twa-checkout-header {
+    padding: 15px 40px 0 40px;
+  }
+  .twa-checkout-header .right a .text {
+    display: none !important;
+  }
 }
 
 .twa-checkout-container {
@@ -161,6 +173,19 @@ html, body {
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-name: placeholderShimmer;
   -webkit-animation-timing-function: linear;
+}
+@media (max-width: 1199px) {
+  .twa-checkout-container {
+    flex-wrap: wrap;
+  }
+  .twa-checkout-container .twa-checkout-left {
+    width: 100%;
+    padding: 70px 40px 15px 40px;
+  }
+  .twa-checkout-container .twa-checkout-right {
+    width: 100%;
+    padding: 70px 40px 15px 40px;
+  }
 }
 
 @-webkit-keyframes placeholderShimmer {
@@ -255,6 +280,16 @@ h2 {
 }
 .twa-checkout-breakdown-container table.breakdown tr.sep td {
   height: 10px;
+}
+
+.twa-checkout-order-confirmation {
+  display: block;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(15, 11, 12, 0.1);
+}
+.twa-checkout-order-confirmation:last-of-type {
+  border-bottom: 0px;
 }
 
 .hidden {
