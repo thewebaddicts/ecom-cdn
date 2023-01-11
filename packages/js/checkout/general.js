@@ -21,6 +21,7 @@ function TWACART_GetDeliveryOtions(targetContainer, lot_id , addressID, countryI
     $(targetContainer).html('loading delivery options, please be patient...');
     $.post($("meta[name='prefix']").attr("content")+'/checkout/delivery/options/get',{ lot_id: lot_id, addressID: addressID, countryID: countryID, postalCode : postalCode },function(data){
         $(targetContainer).html(data);
+        $(targetContainer).find('input[type="radio"]').first().click();
         // $('#delivery_options_container').html(data);
         // UpdateCartBreakdown();
         // $('input[name="shipping_method"]:first').prop('checked',true);
