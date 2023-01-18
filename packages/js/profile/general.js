@@ -10,6 +10,11 @@ function TWAPROFILE_initPhoneNumber(){
             "excludeCountries", "formatOnDisplay", "geoIpLookup", "hiddenInput", "initialCountry", "localizedCountries", "nationalMode", "onlyCountries",
             "placeholderNumberType", "preferredCountries", "separateDialCode" ]);
 
+        console.log(TWAPROFILE_getPhoneOptions(Phone[PhoneIndex] , [
+            "utilsScript", "allowDropdown" , "autoHideDialCode" , "autoPlaceholder" , "customContainer" , "customPlaceholder", "dropdownContainer",
+            "excludeCountries", "formatOnDisplay", "geoIpLookup", "hiddenInput", "initialCountry", "localizedCountries", "nationalMode", "onlyCountries",
+            "placeholderNumberType", "preferredCountries", "separateDialCode" ]));
+
         try{
             PhoneInputs[PhoneIndex] = window.intlTelInput(Phone[PhoneIndex][0], phone_options);
         }catch (e) {
@@ -179,7 +184,7 @@ function TWAPROFILE_changeState(prefix){
 function TWAPROFILE_changeCity(prefix){
 
     var targetContainer = $("select[name='"+prefix+"city'], input[name='"+prefix+"city']").parents('.twa-ecom-field');
-    $.get($("meta[name='prefix']").attr("content")+'/account/addresses/cities/list/',{ 'country_code':$('select[name='+prefix+'country]').val(), 'state': $('select[name='+prefix+'state]').val(), 'prefix': prefix },function(data){
+    $.get($("meta[name='prefix']").attr("content")+'/account/addresses/cities/list',{ 'country_code':$('select[name='+prefix+'country]').val(), 'state': $('select[name='+prefix+'state]').val(), 'prefix': prefix },function(data){
         targetContainer.find('.twa-ecom-field-control').html(data);
         if(targetContainer.parent('.'+prefix+'address-wrapper').hasClass('hide')){
             targetContainer.find('input').prop("required", false);
@@ -193,7 +198,11 @@ function TWAPROFILE_changeCity(prefix){
 
 function TWAPROFILE_checkCountryIntelTelInput(val){
     try{
-        $('.phone-field').trigger('customBillingAddress',[val]);
+        $('.phone-field').each(function(){
+            if($(this).val() == ""){
+                $(this).trigger('customBillingAddress',[val]);
+            }
+        });
     }catch (e){}
 }
 
@@ -220,5 +229,4 @@ $( document ).ready(function() {
     TWAPROFILE_changeAddressLabel();
     TWAPROFILE_initPhoneNumber();
 });
-
 

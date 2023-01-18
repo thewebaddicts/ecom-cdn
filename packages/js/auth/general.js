@@ -1,0 +1,61 @@
+function AUTHENTICATION_InitCodeGroup(group) {
+
+    $("." + group)
+        .find("input")
+        .each(function (index, elem) {
+            $(elem).on("keyup", function (event) {
+                var key = event.which || event.keyCode || event.charCode;
+                if (key == 8 && $(this).val() == "") {
+                    $(this).prev("input").focus();
+                } else
+                if ($(this).val() != "") {
+                    if ($(this).next("input").length > 0 && $(this).next("input").length<2) {
+                        $(this).next("input").focus();
+                    } else {
+                        $('#otp-form').submit();
+                        // if (
+                        //     $("#code-input-group").data().hasOwnProperty("fnc")
+                        // ) {
+                        //     var myfunction =
+                        //         $("#code-input-group").attr("data-fnc");
+                        //
+                        //     if( $("#code-input-group").data().hasOwnProperty("url")) {
+                        //         var url = $("#code-input-group").attr("data-url");
+                        //         myfunction = myfunction + "('"+url+"')";
+                        //     }else{
+                        //         myfunction = myfunction + "()";
+                        //     }
+                        //
+                        //     eval(alert('hey'));
+                        // }
+                    }
+                }
+            });
+        });
+}
+
+function AUTHENTICATION_showTimer() {
+    if (time < 0) {
+        clearInterval(timer);
+        $('#send-login-otp-btn').prop('disabled' ,false);
+        $('#send-login-otp-btn').removeClass('disabled');
+        $('#send-login-otp-btn .send' ).removeClass('d-none');
+        $('#send-login-otp-btn .sending' ).addClass('d-none');
+        $('#send-login-otp-btn .sent' ).addClass('d-none');
+        $('#timerDiv').html('');
+        $('.resend-pin').removeClass('d-none');
+        return;
+    }
+    function pad(value) {
+        return (value < 10 ? '0' : '') + value;
+    }
+
+    $('#timerDiv').text(Math.floor(time / 60) + ':' + pad(time % 60));
+    time--;
+}
+function AUTHENTICATION_start_timer(){
+    time = 60;
+    AUTHENTICATION_showTimer();
+    timer = setInterval(AUTHENTICATION_showTimer, 1000);
+
+}
