@@ -47,12 +47,11 @@ function TWAPROFILE_initPhoneNumber(){
             // elem.parent().parent('.phone-input').find('input[name=phone_country_code]').val(phone_country_code);
 
             if(!PhoneInputs[PhoneIndex].isValidNumber()){
-
-                elem.addClass('text-field-error');
-                elem.parent().removeClass('phone-valid').addClass('phone-invalid');
+                elem.parent().addClass('phone-invalid');
+                elem.parent().removeClass('phone-valid');
             }else{
-                elem.removeClass('text-field-error');
-                elem.parent().removeClass('phone-invalid').addClass('phone-valid');
+                elem.parent().removeClass('phone-invalid');
+                elem.parent().addClass('phone-valid');
             }
         });
     });
