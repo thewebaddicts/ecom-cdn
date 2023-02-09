@@ -230,14 +230,14 @@ html, body {
 }
 
 h1 {
-  font-family: "Imbue", "Noto Kufi Arabic", serif;
+  font-family: "Imbue", "Noto Kufi Arabic", serif !important;
   font-size: 2.625rem;
   font-weight: 400;
   margin-top: 0;
 }
 
 h2 {
-  font-family: "Imbue", "Noto Kufi Arabic", serif;
+  font-family: "Imbue", "Noto Kufi Arabic", serif !important;
   font-size: 2rem;
   font-weight: 400;
   margin-top: 0;
@@ -601,6 +601,12 @@ h2 {
 .twa-form .twa-ecom-field.half {
   width: calc(50% - 7.5px);
 }
+.twa-form .twa-ecom-field.third {
+  width: calc(33.3333333333% - 15px);
+}
+.twa-form .twa-ecom-field.quarter {
+  width: calc(25% - 7.5px);
+}
 .twa-form .twa-ecom-field .iti, .twa-form .twa-ecom-field input, .twa-form .twa-ecom-field select, .twa-form .twa-ecom-field textarea {
   width: 100%;
 }
@@ -645,6 +651,10 @@ h2 {
 .twa-form .twa-ecom-field input[type=submit].red:hover, .twa-form .twa-ecom-field .submit.red:hover {
   color: #0F0B0C;
 }
+.twa-form .twa-ecom-field input[type=submit].inline, .twa-form .twa-ecom-field .submit.inline {
+  height: 40px;
+  line-height: 40px;
+}
 .twa-form .twa-ecom-field select {
   background-image: url(data:image/svg+xml;charset=UTF-8;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwb2x5Z29uIGZpbGw9IiMwRjBCMEMiIHBvaW50cz0iMTIgMSA5IDYgMTUgNiIgLz4KICAgIDxwb2x5Z29uIGZpbGw9IiMwRjBCMEMiIHBvaW50cz0iMTIgMTMgOSA4IDE1IDgiIC8+Cjwvc3ZnPgo=);
   background-repeat: no-repeat;
@@ -672,6 +682,20 @@ h2 {
   display: block;
   width: 100%;
   text-align: center;
+}
+
+form.disabled {
+  position: relative;
+}
+form.disabled:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
 }
 
 .common-loader-hide {
