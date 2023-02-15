@@ -1,6 +1,11 @@
-$('form.disable-on-submit').on('submit',function(){
-    $(this).find('input[type=submit]').prop('disabled',true);
-})
+$( document ).ready(function() {
+    $('form.disable-on-submit').on('submit',function(){
+        $(this).find('input[type=submit]').prop('disabled',true);
+    })
+});
+
+
+
 
 function TWAGENERAL_card_valueChange(elem) {
     $('input[name="'+$(elem).prop('name')+'"]').parents('.twa-card').removeClass('selected');
