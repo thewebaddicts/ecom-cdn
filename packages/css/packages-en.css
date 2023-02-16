@@ -3,6 +3,7 @@ html, body {
   font-size: 12px;
   color: #0F0B0C;
   line-height: 1.5;
+  overflow: unset !important;
 }
 
 * {
@@ -16,7 +17,6 @@ html, body {
   height: 5px;
   background-color: red;
   width: 100%;
-  z-index: 99999;
 }
 
 .twa-checkout-header {
@@ -26,7 +26,7 @@ html, body {
   right: 0;
   align-self: flex-start;
   width: 100%;
-  padding: 15px 70px 0 70px;
+  padding: 15px 0 0 70px;
   background-color: #FFF;
   border-bottom: 1px solid rgba(15, 11, 12, 0.1);
   display: flex;
@@ -71,14 +71,16 @@ html, body {
   width: 70%;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   text-align: right;
+  align-items: stretch;
 }
 .twa-checkout-header .right a {
   padding-left: 10px;
   text-decoration: none;
   color: #0F0B0C;
   transition: 0.3s;
+  display: flex;
+  align-items: center;
 }
 .twa-checkout-header .right a:hover {
   color: #AA9828 !important;
@@ -108,6 +110,24 @@ html, body {
 }
 .twa-checkout-header .right a.cart .icon::before {
   content: "\f07a";
+}
+.twa-checkout-header .right .right_section_placeholder {
+  width: 540px;
+}
+.twa-checkout-header .right .right_section {
+  position: absolute;
+  background-color: #FAFAFA;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 70px;
+  width: 500px;
+  margin-top: -15px;
+  height: calc(100% + 15px + 1px) !important;
+  border-bottom: 64px solid #FAFAFA;
+}
+.twa-checkout-header .right .right_section a {
+  transform: translateY(15px);
 }
 .twa-checkout-header .tabs {
   width: 100%;
@@ -250,17 +270,23 @@ h2 {
   background-color: #FFF;
   margin-bottom: 10px;
   border: 1px solid rgba(15, 11, 12, 0.1);
-  padding: 15px;
+  padding: 0;
 }
 .twa-checkout-breakdown-container table.items td {
-  padding: 10px;
+  padding: 30px 10px;
   border-bottom: 1px solid rgba(15, 11, 12, 0.1);
+}
+.twa-checkout-breakdown-container table.items td:first-of-type {
+  padding-left: 40px;
+}
+.twa-checkout-breakdown-container table.items td:last-of-type {
+  padding-right: 40px;
 }
 .twa-checkout-breakdown-container table.items {
   margin-bottom: 20px;
 }
 .twa-checkout-breakdown-container table.items td:first-of-type {
-  width: 80px;
+  width: 110px;
   text-align: center;
 }
 .twa-checkout-breakdown-container table.items td:nth-of-type(2) {
@@ -277,17 +303,18 @@ h2 {
   text-align: center;
 }
 .twa-checkout-breakdown-container table.breakdown td:first-of-type {
-  padding: 2px 14px;
+  padding: 2px 14px 2px 40px;
   text-align: left;
 }
 .twa-checkout-breakdown-container table.breakdown td:last-of-type {
-  padding: 2px 14px;
+  padding: 2px 40px 2px 14px;
   text-align: right;
 }
 .twa-checkout-breakdown-container table.breakdown tr:last-of-type td {
   font-weight: 700;
   border-top: 1px solid rgba(15, 11, 12, 0.1);
-  padding-top: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .twa-checkout-breakdown-container table.breakdown tr.sep td {
   height: 14px;
