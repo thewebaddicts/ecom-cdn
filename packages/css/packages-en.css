@@ -152,6 +152,9 @@ html, body {
   .twa-checkout-header .right a .text {
     display: none !important;
   }
+  .twa-checkout-header .right .right_section, .twa-checkout-header .right .right_section_placeholder {
+    display: none;
+  }
 }
 
 .twa-checkout-container {
