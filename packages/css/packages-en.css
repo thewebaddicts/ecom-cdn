@@ -378,7 +378,6 @@ h2 {
 }
 .twa-cart-list-items .twa-cart-list-item .price {
   width: 150px;
-  direction: ltr !important;
   text-align: center;
   flex-shrink: 0;
   font-weight: 500;
