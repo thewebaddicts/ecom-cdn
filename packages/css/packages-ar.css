@@ -382,7 +382,6 @@ h2 {
   text-align: center;
   flex-shrink: 0;
   font-weight: 500;
-  font-size: 1.1rem;
 }
 .twa-cart-list-items .twa-cart-list-item .info {
   width: 100%;
@@ -391,13 +390,17 @@ h2 {
 }
 .twa-cart-list-items .twa-cart-list-item .info .label {
   text-decoration: none;
-  color: #0F0B0C;
   font-size: 1.1rem;
-  font-weight: 500;
+  color: #0F0B0C;
+  font-weight: 700;
 }
 .twa-cart-list-items .twa-cart-list-item .info .sublabel {
   color: rgba(15, 11, 12, 0.5);
+  font-size: 0.8rem;
   margin-bottom: 5px;
+}
+.twa-cart-list-items .twa-cart-list-item .info .sublabel * {
+  font-size: 0.8rem;
 }
 .twa-cart-list-items .twa-cart-list-item .info .unit-price {
   color: rgba(15, 11, 12, 0.5);
@@ -615,7 +618,7 @@ input, select {
   border: 1px solid rgba(15, 11, 12, 0.6);
 }
 
-.twa-form .twa-ecom-field input[type=submit].outline, .twa-form .twa-ecom-field .submit.outline, .twa-form .twa-ecom-field input[type=submit].red:hover, .twa-form .twa-ecom-field .submit.red:hover, .twa-form .twa-ecom-field input[type=submit]:hover, .twa-form .twa-ecom-field .submit:hover, .twa-checkout-stacked-title a:hover {
+.twa-form .twa-ecom-field button.outline, .twa-form .twa-ecom-field input[type=submit].outline, .twa-form .twa-ecom-field .submit.outline, .twa-form .twa-ecom-field button.red:hover, .twa-form .twa-ecom-field .submit.red:hover, .twa-form .twa-ecom-field button:hover, .twa-form .twa-ecom-field input[type=submit]:hover, .twa-form .twa-ecom-field .submit:hover, .twa-checkout-stacked-title a:hover {
   background-color: transparent;
   color: #0F0B0C;
   position: relative;
@@ -639,6 +642,14 @@ input, select {
 }
 .twa-form .twa-ecom-field.quarter {
   width: calc(25% - 7.5px);
+}
+@media (max-width: 639px) {
+  .twa-form .twa-ecom-field.hide-label-sm .twa-ecom-label {
+    display: none !important;
+  }
+  .twa-form .twa-ecom-field.half, .twa-form .twa-ecom-field.third, .twa-form .twa-ecom-field.quarter {
+    width: 100% !important;
+  }
 }
 .twa-form .twa-ecom-field .iti, .twa-form .twa-ecom-field input, .twa-form .twa-ecom-field select, .twa-form .twa-ecom-field textarea {
   width: 100%;
@@ -664,7 +675,7 @@ input, select {
   height: auto !important;
   padding: 10px;
 }
-.twa-form .twa-ecom-field input[type=submit], .twa-form .twa-ecom-field .submit {
+.twa-form .twa-ecom-field button, .twa-form .twa-ecom-field input[type=submit], .twa-form .twa-ecom-field .submit {
   background-color: #0F0B0C;
   color: #FFF;
   height: 60px;
@@ -676,30 +687,33 @@ input, select {
   font-weight: 700;
   transition: 0.15s all;
   cursor: pointer;
+  -webkit-appearance: none;
   display: block;
+  width: 100%;
+  border: 1px solid transparent;
 }
-.twa-form .twa-ecom-field input[type=submit].red, .twa-form .twa-ecom-field .submit.red {
+.twa-form .twa-ecom-field button.red, .twa-form .twa-ecom-field input[type=submit].red, .twa-form .twa-ecom-field .submit.red {
   background-color: #D1171E;
 }
-.twa-form .twa-ecom-field input[type=submit].red:hover, .twa-form .twa-ecom-field .submit.red:hover {
+.twa-form .twa-ecom-field button.red:hover, .twa-form .twa-ecom-field input[type=submit].red:hover, .twa-form .twa-ecom-field .submit.red:hover {
   color: #0F0B0C;
 }
-.twa-form .twa-ecom-field input[type=submit].inline, .twa-form .twa-ecom-field .submit.inline {
+.twa-form .twa-ecom-field button.inline, .twa-form .twa-ecom-field input[type=submit].inline, .twa-form .twa-ecom-field .submit.inline {
   height: 40px;
   line-height: 40px;
 }
-.twa-form .twa-ecom-field input[type=submit].outline, .twa-form .twa-ecom-field .submit.outline {
+.twa-form .twa-ecom-field button.outline, .twa-form .twa-ecom-field input[type=submit].outline, .twa-form .twa-ecom-field .submit.outline {
   color: #0F0B0C;
 }
-.twa-form .twa-ecom-field input[type=submit].outline:hover, .twa-form .twa-ecom-field .submit.outline:hover {
+.twa-form .twa-ecom-field button.outline:hover, .twa-form .twa-ecom-field input[type=submit].outline:hover, .twa-form .twa-ecom-field .submit.outline:hover {
   background-color: #0F0B0C;
   color: #FFF;
 }
-.twa-form .twa-ecom-field input[type=submit]:disabled, .twa-form .twa-ecom-field input[type=submit].disabled, .twa-form .twa-ecom-field .submit:disabled, .twa-form .twa-ecom-field .submit.disabled {
+.twa-form .twa-ecom-field button:disabled, .twa-form .twa-ecom-field button.disabled, .twa-form .twa-ecom-field input[type=submit]:disabled, .twa-form .twa-ecom-field input[type=submit].disabled, .twa-form .twa-ecom-field .submit:disabled, .twa-form .twa-ecom-field .submit.disabled {
   opacity: 0.4;
   cursor: unset;
 }
-.twa-form .twa-ecom-field input[type=submit]:disabled:hover, .twa-form .twa-ecom-field input[type=submit].disabled:hover, .twa-form .twa-ecom-field .submit:disabled:hover, .twa-form .twa-ecom-field .submit.disabled:hover {
+.twa-form .twa-ecom-field button:disabled:hover, .twa-form .twa-ecom-field button.disabled:hover, .twa-form .twa-ecom-field input[type=submit]:disabled:hover, .twa-form .twa-ecom-field input[type=submit].disabled:hover, .twa-form .twa-ecom-field .submit:disabled:hover, .twa-form .twa-ecom-field .submit.disabled:hover {
   background-color: #0F0B0C;
   color: #FFF;
 }
