@@ -1,8 +1,7 @@
 $( document ).ready(function() {
-    $('form.disable-on-submit').on('submit',function(){
-        $(this).find('input[type=submit],button.submit').prop('disabled',true);
-        return true;
-    })
+    $('form.disable-on-submit').find('input[type=submit],button.submit').on('click',function(){
+        $(this).prop('disabled',true);
+    });
 });
 
 
