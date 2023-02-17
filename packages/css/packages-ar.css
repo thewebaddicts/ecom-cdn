@@ -695,10 +695,11 @@ input, select {
   background-color: #0F0B0C;
   color: #FFF;
 }
-.twa-form .twa-ecom-field input[type=submit]:disabled, .twa-form .twa-ecom-field .submit:disabled {
+.twa-form .twa-ecom-field input[type=submit]:disabled, .twa-form .twa-ecom-field input[type=submit].disabled, .twa-form .twa-ecom-field .submit:disabled, .twa-form .twa-ecom-field .submit.disabled {
   opacity: 0.4;
+  cursor: unset;
 }
-.twa-form .twa-ecom-field input[type=submit]:disabled:hover, .twa-form .twa-ecom-field .submit:disabled:hover {
+.twa-form .twa-ecom-field input[type=submit]:disabled:hover, .twa-form .twa-ecom-field input[type=submit].disabled:hover, .twa-form .twa-ecom-field .submit:disabled:hover, .twa-form .twa-ecom-field .submit.disabled:hover {
   background-color: #0F0B0C;
   color: #FFF;
 }
