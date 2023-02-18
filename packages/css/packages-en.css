@@ -852,6 +852,15 @@ form.disabled:after {
   align-items: center;
 }
 
+form.disabled.margin-adjuster {
+  margin-top: -190px;
+}
+@media (max-width: 639px) {
+  form.disabled.margin-adjuster {
+    margin-top: 0;
+  }
+}
+
 .twa-authentication-container {
   display: flex;
   justify-content: center;
