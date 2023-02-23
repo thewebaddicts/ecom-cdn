@@ -31,9 +31,14 @@ function TWAPROFILE_initPhoneNumber(){
         if(Phone[PhoneIndex].val() != ""){
             PhoneInputs[PhoneIndex].setNumber(Phone[PhoneIndex].val());
         }
+        Phone[PhoneIndex].on("countrychange", function() {
+            elem = $(this);
+            var countryData = PhoneInputs[PhoneIndex].getSelectedCountryData();
+            const phone_country_code = countryData.iso2;
+            elem.parent().parents('.twa-ecom-field-control').find('.phone_country_code').val(phone_country_code);
+        });
 
         Phone[PhoneIndex].on("input", function(){
-
             elem = $(this);
             const phoneNumber = PhoneInputs[PhoneIndex].getNumber();
             var countryData = PhoneInputs[PhoneIndex].getSelectedCountryData();
