@@ -1054,13 +1054,24 @@ a {
   position: absolute;
   padding: 0 15px;
   right: 0;
-  height: 100%;
-  background-color: transparent;
+  background-color: #0F0B0C;
   border: 0;
   outline: none;
   text-decoration: underline;
   font-size: 14px;
   cursor: pointer;
+  top: 0;
+  width: 20%;
+  max-width: 75px;
+  bottom: 0px;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+.password-group button:hover {
+  background-color: #0F0B0C !important;
+  position: absolute !important;
+  color: #FFF !important;
+  height: unset;
 }
 .password-group input {
   padding-right: 80px !important;
