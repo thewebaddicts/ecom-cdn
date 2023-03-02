@@ -1,4 +1,12 @@
 $( document ).ready(function() {
+    $('form.disable-on-submit').find('textarea,input,select').on('invalid',function(){
+        // $('form.disable-on-submit').find('textarea,input,select').removeClass('invalid');
+        $(this).addClass('invalid');
+    });
+    $('form.disable-on-submit').find('textarea,input,select').on('input,change',function(){
+        $(this).removeClass('invalid');
+    });
+
     $('form.disable-on-submit').on('submit',function(){
         $(this).find('input[type=submit],button.submit').prop('disabled',true);
         if($(this).attr('data-onsubmit') != '' && $(this).attr('data-onsubmit') && $(this).attr('data-onsubmit') !== undefined){
