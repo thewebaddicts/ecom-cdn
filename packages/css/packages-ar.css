@@ -27,6 +27,8 @@ html, body {
   align-self: flex-start;
   width: 100%;
   padding: 15px 0 0 70px;
+  padding-right: 15px;
+  padding-left: 0;
   background-color: #FFF;
   border-bottom: 1px solid rgba(15, 11, 12, 0.1);
   display: flex;
@@ -43,14 +45,14 @@ html, body {
 }
 .twa-checkout-header .left .logo .regular {
   position: relative;
-  left: 0;
+  right: 0;
   z-index: 2;
   transition: 0.3s all;
 }
 .twa-checkout-header .left .logo .compact {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 1;
   transition: 0.3s all;
   opacity: 0;

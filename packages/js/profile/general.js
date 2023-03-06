@@ -10,11 +10,6 @@ function TWAPROFILE_initPhoneNumber(){
             "excludeCountries", "formatOnDisplay", "geoIpLookup", "hiddenInput", "initialCountry", "localizedCountries", "nationalMode", "onlyCountries",
             "placeholderNumberType", "preferredCountries", "separateDialCode" ]);
 
-        console.log(TWAPROFILE_getPhoneOptions(Phone[PhoneIndex] , [
-            "utilsScript", "allowDropdown" , "autoHideDialCode" , "autoPlaceholder" , "customContainer" , "customPlaceholder", "dropdownContainer",
-            "excludeCountries", "formatOnDisplay", "geoIpLookup", "hiddenInput", "initialCountry", "localizedCountries", "nationalMode", "onlyCountries",
-            "placeholderNumberType", "preferredCountries", "separateDialCode" ]));
-
         try{
             PhoneInputs[PhoneIndex] = window.intlTelInput(Phone[PhoneIndex][0], phone_options);
         }catch (e) {
