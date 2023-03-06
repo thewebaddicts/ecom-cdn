@@ -83,15 +83,19 @@ html, body {
   transition: 0.3s;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
 }
 .twa-checkout-header .right a:hover {
   color: #AA9828 !important;
 }
 .twa-checkout-header .right a .icon {
-  float: left;
+  float: right;
   width: 30px;
   height: 30px;
   padding-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .twa-checkout-header .right a .icon:before {
   font-family: "Font Awesome 6 Pro";
@@ -99,6 +103,10 @@ html, body {
   height: 30px;
   line-height: 30px;
   font-size: 18px;
+}
+.twa-checkout-header .right a .icon .cart-count {
+  padding-top: 8px;
+  padding-left: 5px;
 }
 .twa-checkout-header .right a .text {
   height: 30px;
@@ -123,7 +131,8 @@ html, body {
   left: 0;
   display: flex;
   align-items: center;
-  padding-right: 70px;
+  padding-left: 70px;
+  padding-right: 15px;
   width: 500px;
   margin-top: -15px;
   height: calc(100% + 15px + 1px) !important;
@@ -140,7 +149,7 @@ html, body {
   color: #0F0B0C;
   text-decoration: none;
   padding: 30px 0 15px 0;
-  margin-right: 30px;
+  margin-left: 30px;
   border-bottom: 1px solid transparent;
   opacity: 0.5;
 }
@@ -173,13 +182,15 @@ html, body {
   float: left;
 }
 .twa-checkout-container .twa-checkout-left.ar {
-  padding: 70px 70px 15px 15px;
+  padding: 70px 70px 15px 15px !important;
 }
 .twa-checkout-container .twa-checkout-right {
   background-color: #FAFAFA;
   min-height: 100vh;
   width: 500px;
-  padding: 70px 70px 15px 15px;
+  padding: 70px 15px 15px 70px;
+  padding-right: 15px;
+  padding-left: 70px;
   position: relative;
 }
 .twa-checkout-container .twa-checkout-right .twa-checkout-right-breakdown-container {
@@ -250,6 +261,10 @@ html, body {
   border: 1px solid transparent;
   transition: 0.15s all;
 }
+.twa-checkout-stacked-title a:hover {
+  text-decoration: none;
+}
+
 .twa-checkout-delivery-lot {
   margin-bottom: 40px;
 }
@@ -283,10 +298,10 @@ h2 {
   border-bottom: 1px solid rgba(15, 11, 12, 0.1);
 }
 .twa-checkout-breakdown-container table.items td:first-of-type {
-  padding-left: 40px;
+  padding-right: 40px;
 }
 .twa-checkout-breakdown-container table.items td:last-of-type {
-  padding-right: 40px;
+  padding-left: 40px;
 }
 .twa-checkout-breakdown-container table.items {
   margin-bottom: 20px;
@@ -387,7 +402,7 @@ h2 {
 }
 .twa-cart-list-items .twa-cart-list-item .info {
   width: 100%;
-  text-align: left;
+  text-align: right;
   padding: 0 30px;
 }
 .twa-cart-list-items .twa-cart-list-item .info .label {
@@ -779,11 +794,11 @@ input, select {
   transform: scale(0);
   transform-origin: bottom left;
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em #0F0B0C;
+  box-shadow: inset 1em 1em #FFF;
   background-color: CanvasText;
 }
 .twa-form .twa-ecom-checkbox input[type=checkbox]:checked {
-  background-color: transparent !important;
+  background-color: #0F0B0C !important;
 }
 .twa-form .twa-ecom-checkbox input[type=checkbox]:checked::before {
   transform: scale(1);
