@@ -36,6 +36,7 @@ function TWACART_GetDeliveryOtions(targetContainer, lot_id , addressID, countryI
 
 function TWACART_generateScheduledDelivery(state = false , session = false, id = "delivery_date_picker"){
     $(id).val('');
+    if(!state || state === ''){ state = "all"; }
     var date_picker_available = $(id).length;
     if(date_picker_available > 0 ){
         var local = $("meta[name=locale]").attr("content");
