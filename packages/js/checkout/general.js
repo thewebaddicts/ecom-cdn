@@ -46,6 +46,7 @@ function TWACART_generateScheduledDelivery(state = false , session = false, id =
                 storeID: storeID
             },
             function(data){
+                var lot_id=id.split('delivery_date_picker')[1];
                 if(data.success && data.replace){
                     var availableDates = data.listOfDays;
                     $(id).datepicker('destroy').datepicker({
