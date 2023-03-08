@@ -52,11 +52,16 @@ function TWACART_generateScheduledDelivery(state = false , session = false, id =
                         beforeShowDay: function(d){ return TWACART_availableDate(d,availableDates); },
                         dateFormat: "dd-mm-yy"
                     });
+                    $(id).parent().append('<input type="hidden" id="delivery_selected_state'+lot_id+'" value="'+state+'" >' +
+                        '<input type="hidden" id="delivery_schedule_type'+lot_id+'" value="'+data.byTimeSlot+'" >' +
+                        '');
+
+                    $('#TWA_delivery_slots'+lot_id).html('');
                 }else{
-                    $(id).datepicker({
-                        minDate: 0,
-                        dateFormat: "dd-mm-yy"
-                    });
+                    $(id).datepicker({ minDate: 0,  dateFormat: "dd-mm-yy" });
+                    $(id).parent().append('<input type="hidden" id="delivery_selected_state'+lot_id+'" value="'+state+'" >');
+
+                    $('#TWA_delivery_slots'+lot_id).html('');
                 }
             });
     }
