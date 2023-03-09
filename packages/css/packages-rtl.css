@@ -766,7 +766,7 @@ input, select {
   top: 0;
   bottom: 0;
   z-index: 1;
-  background-image: url("https://cdn.jsdelivr.net/gh/thewebaddicts/ecom-cdn@5.2/packages/assets/loaders/oval.svg");
+  background-image: url("https://cdn.jsdelivr.net/gh/thewebaddicts/ecom-cdn@5.4/packages/assets/loaders/oval.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 25px;
