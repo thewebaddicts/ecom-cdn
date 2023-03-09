@@ -671,6 +671,7 @@ input, select {
 .twa-form .twa-ecom-field {
   display: block;
   width: 100%;
+  position: relative;
 }
 .twa-form .twa-ecom-field.half {
   width: calc(50% - 7.5px);
@@ -754,10 +755,25 @@ input, select {
 .twa-form .twa-ecom-field button:disabled, .twa-form .twa-ecom-field button.disabled, .twa-form .twa-ecom-field input[type=submit]:disabled, .twa-form .twa-ecom-field input[type=submit].disabled, .twa-form .twa-ecom-field .submit:disabled, .twa-form .twa-ecom-field .submit.disabled {
   opacity: 0.4;
   cursor: unset;
+  color: transparent;
+}
+.twa-form .twa-ecom-field button:disabled:before, .twa-form .twa-ecom-field button.disabled:before, .twa-form .twa-ecom-field input[type=submit]:disabled:before, .twa-form .twa-ecom-field input[type=submit].disabled:before, .twa-form .twa-ecom-field .submit:disabled:before, .twa-form .twa-ecom-field .submit.disabled:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background-image: url("https://cdn.jsdelivr.net/gh/thewebaddicts/ecom-cdn@5.2/packages/assets/loaders/oval.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
 }
 .twa-form .twa-ecom-field button:disabled:hover, .twa-form .twa-ecom-field button.disabled:hover, .twa-form .twa-ecom-field input[type=submit]:disabled:hover, .twa-form .twa-ecom-field input[type=submit].disabled:hover, .twa-form .twa-ecom-field .submit:disabled:hover, .twa-form .twa-ecom-field .submit.disabled:hover {
   background-color: #0F0B0C;
-  color: #FFF;
+  color: transparent !important;
 }
 .twa-form .twa-ecom-field select {
   background-image: url(data:image/svg+xml;charset=UTF-8;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwb2x5Z29uIGZpbGw9IiMwRjBCMEMiIHBvaW50cz0iMTIgMSA5IDYgMTUgNiIgLz4KICAgIDxwb2x5Z29uIGZpbGw9IiMwRjBCMEMiIHBvaW50cz0iMTIgMTMgOSA4IDE1IDgiIC8+Cjwvc3ZnPgo=);
