@@ -568,7 +568,7 @@ h2 {
   margin-top: -5px;
 }
 .twa-cart-vouchers-form .twa-cart-vouchers-form-apply {
-  position: absolute;
+  position: absolute !important;
   right: 30px;
   top: 60px;
   width: 100px !important;
