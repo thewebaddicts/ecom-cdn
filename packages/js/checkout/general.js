@@ -47,21 +47,36 @@ function TWACART_generateScheduledDelivery(state = false , session = false, id =
             },
             function(data){
                 var lot_id=id.split('delivery_date_picker')[1];
+                var currentDeliveryTypeInput = $("#delivery_schedule_type"+lot_id);
+                var currentStateInput = $("#delivery_selected_state"+lot_id);
                 if(data.success && data.replace){
                     var availableDates = data.listOfDays;
                     $(id).datepicker('destroy').datepicker({
                         beforeShowDay: function(d){ return TWACART_availableDate(d,availableDates); },
                         dateFormat: "dd-mm-yy"
                     });
-                    $(id).parent().append('<input type="hidden" id="delivery_selected_state'+lot_id+'" value="'+state+'" >' +
-                        '<input type="hidden" id="delivery_schedule_type'+lot_id+'" value="'+data.byTimeSlot+'" >' +
-                        '');
+                    if(currentStateInput.length == 0){
+                        $(id).parent().append('<input type="hidden" id="delivery_selected_state'+lot_id+'" value="'+state+'" >'  +
+                            '');
+                    }else{
+                        currentStateInput.val(state);
+                    }
+                    if(currentDeliveryTypeInput.length == 0){
+                        $(id).parent().append('<input type="hidden" id="delivery_schedule_type'+lot_id+'" value="'+data.byTimeSlot+'" >' +
+                            '');
+                    }else{
+                        currentDeliveryTypeInput.val(data.byTimeSlot);
 
+                    }
                     $('#TWA_delivery_slots'+lot_id).html('');
                 }else{
                     $(id).datepicker({ minDate: 0,  dateFormat: "dd-mm-yy" });
-                    $(id).parent().append('<input type="hidden" id="delivery_selected_state'+lot_id+'" value="'+state+'" >');
-
+                    if(currentStateInput.length == 0){
+                        $(id).parent().append('<input type="hidden" id="delivery_selected_state'+lot_id+'" value="'+state+'" >'  +
+                            '');
+                    }else{
+                        currentStateInput.val(state);
+                    }
                     $('#TWA_delivery_slots'+lot_id).html('');
                 }
             });
