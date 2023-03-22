@@ -38,7 +38,7 @@ function TWACART_generateScheduledDelivery(state = false , session = false, id =
     $(id).val('');
     if(!state || state === ''){ state = "all"; }
     var date_picker_available = $(id).length;
-    if(date_picker_available > 0 ){
+    if(typeof  $(id) != 'undefined' ){
         var local = $("meta[name=locale]").attr("content");
         var storeID = $("meta[name=storeID]").attr("content");
         $.get($("meta[name='prefix']").attr("content")+ "/get/scheduled/delivery/"+state,
