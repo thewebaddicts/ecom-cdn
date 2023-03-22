@@ -77,6 +77,13 @@ function TWACART_generateScheduledDelivery(state = false , session = false, id =
                     }else{
                         currentStateInput.val(state);
                     }
+                    if(currentDeliveryTypeInput.length == 0){
+                        $(id).parent().append('<input type="hidden" id="delivery_schedule_type'+lot_id+'" value="'+data.byTimeSlot+'" >' +
+                            '');
+                    }else{
+                        currentDeliveryTypeInput.val(data.byTimeSlot);
+
+                    }
                     $('#TWA_delivery_slots'+lot_id).html('');
                 }
             });
