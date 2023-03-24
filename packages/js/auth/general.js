@@ -44,6 +44,7 @@ function AUTHENTICATION_showTimer() {
         $('#send-login-otp-btn .sent' ).addClass('d-none');
         $('#timerDiv').html('');
         $('.resend-pin').removeClass('d-none');
+        $('#AUTHENTICATION_otp-send-fail').removeClass('d-none');
         return;
     }
     function pad(value) {
@@ -53,8 +54,8 @@ function AUTHENTICATION_showTimer() {
     $('#timerDiv').text(Math.floor(time / 60) + ':' + pad(time % 60));
     time--;
 }
-function AUTHENTICATION_start_timer(){
-    time = 60;
+function AUTHENTICATION_start_timer(expires_after){
+    time = expires_after;
     AUTHENTICATION_showTimer();
     timer = setInterval(AUTHENTICATION_showTimer, 1000);
 

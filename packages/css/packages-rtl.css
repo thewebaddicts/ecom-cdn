@@ -1266,7 +1266,7 @@ a {
 }
 .TWA_USE_WALLET_CONTAINER .TWA_wallet_balance_text{
   display: flex;
-  padding: 5px 40px;
+  padding: 5px 0;
   justify-content: space-between;
   align-items: center;
 }
