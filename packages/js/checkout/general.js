@@ -154,7 +154,33 @@ function TWACART_billingAddNewAddress(){
     });
 }
 
+function TWA_Apply_Wallet(elem){
+    var store_id = $("meta[name=store-id]").attr("content");
+    var lang = $("meta[name=lang]").attr("content");
+    var local = $("meta[name=locale]").attr("content");
 
+    $.ajax({
+        type: "GET",
+        url: "/" + store_id + "/" + lang + "/headless/cart/wallet/apply",
+        success: function (data) {
+            TWACART_loadBreakdown();
+        },
+    });
+}
+function TWA_UnApply_Wallet(elem){
+
+    var store_id = $("meta[name=store-id]").attr("content");
+    var lang = $("meta[name=lang]").attr("content");
+    var local = $("meta[name=locale]").attr("content");
+
+    $.ajax({
+        type: "GET",
+        url: "/" + store_id + "/" + lang + "/headless/cart/wallet/remove",
+        success: function (data) {
+            TWACART_loadBreakdown();
+        },
+    });
+}
 
 
 $( document ).ready(function() {
