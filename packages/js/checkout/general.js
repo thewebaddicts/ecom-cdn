@@ -17,9 +17,10 @@ window.addEventListener("scroll", function() {
 
 
 
-function TWACART_GetDeliveryOtions(targetContainer, lot_id , addressID, countryID = false,  postalCode = false){
+function TWACART_GetDeliveryOtions(targetContainer, lot_id , addressID, countryID = false,  postalCode = false,stateID = false){
+
     $(targetContainer).html('loading delivery options, please be patient...');
-    $.post($("meta[name='prefix']").attr("content")+'/checkout/delivery/options/get',{ lot_id: lot_id, addressID: addressID, countryID: countryID, postalCode : postalCode },function(data){
+    $.post($("meta[name='prefix']").attr("content")+'/checkout/delivery/options/get',{ lot_id: lot_id, addressID: addressID, countryID: countryID, postalCode : postalCode, stateID: stateID },function(data){
         $(targetContainer).html(data);
         $(targetContainer).find('input[type="radio"]').first().click();
         // $('#delivery_options_container').html(data);
@@ -131,12 +132,11 @@ function TWACART_updateInformation(lot_id,key,value){
 
 }
 
-
 function TWACART_countryAndStateChange(elem,lot_id = false){
     if(lot_id === false){
         lot_id = $(elem).parents('.twa-checkout-delivery-lot').find('input[name=\'lot_id[]\']').val();
     }
-    TWACART_GetDeliveryOtions('#delivery_options_'+lot_id, lot_id , false, $(this).parents('.twa-checkout-delivery-lot').find('input[name="lot_'+lot_id+'_country"]').val() ,  $(this).parents('.twa-checkout-delivery-lot').find('input[name="lot_'+lot_id+'_posta;_code"]').val());
+    TWACART_GetDeliveryOtions('#delivery_options_'+lot_id, lot_id , false, $(elem).parents('.twa-checkout-delivery-lot').find('input[name="lot_'+lot_id+'_country"],select[name="lot_'+lot_id+'_country"]').val() ,  $(elem).parents('.twa-checkout-delivery-lot').find('input[name="lot_'+lot_id+'_postal_code"],select[name="lot_'+lot_id+'_postal_code"]').val(),$(elem).parents('.twa-checkout-delivery-lot').find('input[name="lot_'+lot_id+'_state"],select[name="lot_'+lot_id+'_state"]').val());
     TWACART_generateScheduledDelivery($('select[name="lot_'+lot_id+'_state"]').val() , false,'#delivery_date_picker_'+lot_id)
 }
 
