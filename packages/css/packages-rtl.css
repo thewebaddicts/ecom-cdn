@@ -27,7 +27,7 @@ html, body {
   align-self: flex-start;
   width: 100%;
   padding: 15px 0 0 70px;
-  padding-right: 15px;
+  padding-right: 70px;
   padding-left: 0;
   background-color: #FFF;
   border-bottom: 1px solid rgba(15, 11, 12, 0.1);
@@ -618,6 +618,91 @@ h2 {
   text-transform: uppercase;
 }
 
+.twa-checkout-product-card {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0 40px 0;
+  justify-content: space-between;
+}
+.twa-checkout-product-card .item {
+  width: calc(50% - 20px);
+  display: flex;
+  align-items: center;
+}
+.twa-checkout-product-card .item .image img {
+  width: 50px;
+}
+.twa-checkout-product-card .item .details {
+  font-weight: bold;
+  padding: 15px;
+  width: 100%;
+}
+
+.twa-profile-reviews-container {
+  width: 100%;
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 40px;
+}
+.twa-profile-reviews-container .products {
+  margin-bottom: 40px;
+}
+.twa-profile-reviews-container .products .rating .twa-form {
+  width: 100%;
+  transform: translateY(-35px);
+  position: relative;
+}
+.twa-profile-reviews-container .products .rating .stars {
+  width: 200px;
+  float: right;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+.twa-profile-reviews-container .products .rating .stars ul {
+  text-align: right;
+}
+.twa-profile-reviews-container .products .rating .stars ul li {
+  display: inline-block;
+  color: #F0F0F0;
+  font-size: 20px;
+  cursor: pointer;
+}
+.twa-profile-reviews-container .products .rating .stars ul .highlight, .twa-profile-reviews-container .products .rating .stars ul .selected {
+  color: #AA9828;
+}
+.twa-profile-reviews-container .products .product-card {
+  display: flex;
+  margin-bottom: 15px;
+}
+.twa-profile-reviews-container .products .product-card .image {
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: cover;
+}
+.twa-profile-reviews-container .products .product-card .details {
+  width: calc(100% - 100px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  padding: 0 40px;
+}
+.twa-profile-reviews-container .products .product-card .details h3 {
+  margin: 0 0 5px 0;
+}
+.twa-profile-reviews-container .products .product-card .details .description {
+  color: #666;
+}
+.twa-profile-reviews-container .products hr {
+  border: 0;
+  height: 0;
+  box-sizing: content-box;
+  border-top: 1px solid rgba(15, 11, 12, 0.07);
+  margin: 15px 0 40px 0;
+}
+
 input, select {
   font-family: "Montserrat", "Noto Kufi Arabic", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -737,6 +822,7 @@ input, select {
   border: 1px solid rgba(15, 11, 12, 0.1);
   -webkit-tap-highlight-color: transparent;
   transition: 0.15s;
+  font-family: "Montserrat", "Noto Kufi Arabic", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 .twa-form .twa-ecom-field input:focus, .twa-form .twa-ecom-field select:focus, .twa-form .twa-ecom-field textarea:focus {
   outline-width: 0;
@@ -1249,38 +1335,5 @@ a {
   z-index: 2 !important;
   opacity: 1 !important;
 }
-.TWA_USE_WALLET_CONTAINER{
 
-  cursor: pointer;
-}
-.TWA_USE_WALLET_CONTAINER a{
-  height: 100% !important;
-  width: 100% !important;
-  padding: 10px 40px;
-  display: block !important;
-  cursor: pointer !important;
-
-}
-.TWA_USE_WALLET_CONTAINER a .twa-form .twa-ecom-label{
-  cursor: pointer;
-}
-.TWA_USE_WALLET_CONTAINER .TWA_wallet_balance_text{
-  display: flex;
-  padding: 5px 0;
-  justify-content: space-between;
-  align-items: center;
-}
-.TWA_USE_WALLET_CONTAINER .TWA_wallet_balance_text .left{
-  width: 60%;
-}
-.TWA_USE_WALLET_CONTAINER .TWA_wallet_balance_text .right{
-  width: 30%;
-  text-align: end;
-}
-.TWA_USE_WALLET_CONTAINER h3{
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
-  color: inherit;
-}
 /*# sourceMappingURL=packages-rtl.css.map */
