@@ -35,6 +35,9 @@ html, body {
   flex-wrap: wrap;
   z-index: 99;
 }
+.twa-checkout-header.webview {
+  display: none;
+}
 .twa-checkout-header .left {
   width: 30%;
 }
@@ -895,6 +898,15 @@ input, select {
 .twa-form .twa-ecom-field button:disabled:hover, .twa-form .twa-ecom-field button.disabled:hover, .twa-form .twa-ecom-field input[type=submit]:disabled:hover, .twa-form .twa-ecom-field input[type=submit].disabled:hover, .twa-form .twa-ecom-field .submit:disabled:hover, .twa-form .twa-ecom-field .submit.disabled:hover {
   background-color: #0F0B0C;
   color: transparent !important;
+}
+.twa-form .twa-ecom-field button.webview, .twa-form .twa-ecom-field input[type=submit].webview, .twa-form .twa-ecom-field .submit.webview {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 90px;
+  border-bottom: 30px solid #0F0B0C;
 }
 .twa-form .twa-ecom-field select {
   background-image: url(data:image/svg+xml;charset=UTF-8;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwb2x5Z29uIGZpbGw9IiMwRjBCMEMiIHBvaW50cz0iMTIgMSA5IDYgMTUgNiIgLz4KICAgIDxwb2x5Z29uIGZpbGw9IiMwRjBCMEMiIHBvaW50cz0iMTIgMTMgOSA4IDE1IDgiIC8+Cjwvc3ZnPgo=);

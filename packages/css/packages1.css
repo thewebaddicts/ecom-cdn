@@ -1,0 +1,85 @@
+.twa-authentication-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.twa-authentication-container .twa-authentication-form {
+  width: 40%;
+  height: fit-content;
+}
+
+.title {
+  text-align: center;
+}
+
+.twa-card {
+  width: 100%;
+}
+
+.code-input-group {
+  display: flex;
+  margin: 15px 0;
+}
+.code-input-group .code-input {
+  width: 50px;
+  height: 50px;
+  margin: 1%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.icon-button {
+  display: flex;
+  width: 100%;
+  height: 45px;
+  align-items: center;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 20px;
+}
+.icon-button .icon {
+  flex: 0 1 0%;
+}
+.icon-button .text {
+  text-align: center;
+  flex: 1 1 0;
+}
+
+.invalid-field {
+  display: block;
+  min-height: 20px;
+  margin: 5px 0;
+  color: #ff0000;
+}
+
+.phone-invalid:after {
+  content: "\f00d";
+  font-family: "Font Awesome 5 Pro" !important;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #d1171e;
+}
+
+.phone-valid:after {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Pro" !important;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #0f0b0c;
+}
+
+.twa-login {
+  gap: 0 !important;
+}
+
+/*# sourceMappingURL=packages1.css.map */
