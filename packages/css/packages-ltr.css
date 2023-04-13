@@ -900,12 +900,6 @@ input, select {
   background-repeat: no-repeat;
   background-size: 25px;
 }
-.twa-form .twa-ecom-field button:disabled.webview, .twa-form .twa-ecom-field button.disabled.webview, .twa-form .twa-ecom-field input[type=submit]:disabled.webview, .twa-form .twa-ecom-field input[type=submit].disabled.webview, .twa-form .twa-ecom-field .submit:disabled.webview, .twa-form .twa-ecom-field .submit.disabled.webview {
-  opacity: 1;
-  cursor: unset;
-  color: transparent;
-  content: "loading";
-}
 .twa-form .twa-ecom-field button:disabled:hover, .twa-form .twa-ecom-field button.disabled:hover, .twa-form .twa-ecom-field input[type=submit]:disabled:hover, .twa-form .twa-ecom-field input[type=submit].disabled:hover, .twa-form .twa-ecom-field .submit:disabled:hover, .twa-form .twa-ecom-field .submit.disabled:hover {
   background-color: #0F0B0C;
   color: transparent !important;
@@ -918,6 +912,24 @@ input, select {
   z-index: 9999;
   height: 90px;
   border-bottom: 30px solid #0F0B0C;
+}
+.twa-form .twa-ecom-field button.webview.disabled, .twa-form .twa-ecom-field input[type=submit].webview.disabled, .twa-form .twa-ecom-field .submit.webview.disabled {
+  opacity: 1;
+  color: transparent;
+}
+.twa-form .twa-ecom-field button.webview.disabled:before, .twa-form .twa-ecom-field input[type=submit].webview.disabled:before, .twa-form .twa-ecom-field .submit.webview.disabled:before {
+  display: none;
+}
+.twa-form .twa-ecom-field button.webview.disabled:after, .twa-form .twa-ecom-field input[type=submit].webview.disabled:after, .twa-form .twa-ecom-field .submit.webview.disabled:after {
+  content: "loading, please be patient...";
+  color: #FFF;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
 }
 .twa-form .twa-ecom-field select {
   background-image: url(data:image/svg+xml;charset=UTF-8;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwb2x5Z29uIGZpbGw9IiMwRjBCMEMiIHBvaW50cz0iMTIgMSA5IDYgMTUgNiIgLz4KICAgIDxwb2x5Z29uIGZpbGw9IiMwRjBCMEMiIHBvaW50cz0iMTIgMTMgOSA4IDE1IDgiIC8+Cjwvc3ZnPgo=);
