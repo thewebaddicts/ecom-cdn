@@ -232,6 +232,10 @@ html, body {
     width: 100%;
     padding: 70px 40px 15px 40px;
   }
+  .twa-checkout-container.webview .twa-checkout-left {
+    width: 100%;
+    padding: 35px 20px 7.5px 20px;
+  }
 }
 
 @-webkit-keyframes placeholderShimmer {
@@ -894,6 +898,11 @@ input, select {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 25px;
+}
+.twa-form .twa-ecom-field button:disabled.webview, .twa-form .twa-ecom-field button.disabled.webview, .twa-form .twa-ecom-field input[type=submit]:disabled.webview, .twa-form .twa-ecom-field input[type=submit].disabled.webview, .twa-form .twa-ecom-field .submit:disabled.webview, .twa-form .twa-ecom-field .submit.disabled.webview {
+  opacity: 1;
+  cursor: unset;
+  color: transparent;
 }
 .twa-form .twa-ecom-field button:disabled:hover, .twa-form .twa-ecom-field button.disabled:hover, .twa-form .twa-ecom-field input[type=submit]:disabled:hover, .twa-form .twa-ecom-field input[type=submit].disabled:hover, .twa-form .twa-ecom-field .submit:disabled:hover, .twa-form .twa-ecom-field .submit.disabled:hover {
   background-color: #0F0B0C;
