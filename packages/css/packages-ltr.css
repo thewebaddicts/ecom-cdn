@@ -904,6 +904,7 @@ input, select {
   opacity: 1;
   cursor: unset;
   color: transparent;
+  content: "loading";
 }
 .twa-form .twa-ecom-field button:disabled:hover, .twa-form .twa-ecom-field button.disabled:hover, .twa-form .twa-ecom-field input[type=submit]:disabled:hover, .twa-form .twa-ecom-field input[type=submit].disabled:hover, .twa-form .twa-ecom-field .submit:disabled:hover, .twa-form .twa-ecom-field .submit.disabled:hover {
   background-color: #0F0B0C;
