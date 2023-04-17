@@ -60,3 +60,17 @@ function AUTHENTICATION_start_timer(expires_after){
     timer = setInterval(AUTHENTICATION_showTimer, 1000);
 
 }
+
+function TWA_AUTH_GetHeight(offset){
+    var Height = document.body.offsetHeight;
+    var scrollHeight = document.body.scrollHeight
+    if(Height < scrollHeight){ Height = scrollHeight; }
+
+    Height += offset;
+
+    return Height;
+}
+
+function TWA_AUTH_postMessage(obj){
+    window.parent.postMessage(JSON.stringify(obj), '*');
+}
