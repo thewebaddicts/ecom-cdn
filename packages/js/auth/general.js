@@ -74,3 +74,11 @@ function TWA_AUTH_GetHeight(offset){
 function TWA_AUTH_postMessage(obj){
     window.parent.postMessage(JSON.stringify(obj), '*');
 }
+function togglePassword(elem){
+    let input = elem.parent().find('input');
+    let type = input.attr('type');
+    input.attr('type' , input.attr('type') == "password" ? 'text' : 'password');
+
+    elem.find('i').toggleClass('fa-eye-slash');
+
+}
