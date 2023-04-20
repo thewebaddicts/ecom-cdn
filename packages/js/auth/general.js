@@ -72,7 +72,11 @@ function TWA_AUTH_GetHeight(offset){
 }
 
 function TWA_AUTH_postMessage(obj){
-    window.parent.postMessage(JSON.stringify(obj), '*');
+    try{
+        MessageInvoker.postMessage(JSON.stringify(obj));
+    }catch (e) {
+        window.parent.postMessage(JSON.stringify(obj), '*');
+    }
 }
 function togglePassword(elem){
     let input = elem.parent().find('input');
