@@ -302,9 +302,9 @@ function twa_analytics_sendhit(data) {
     // console.log(payload);
     var url = 'https://analytics.twalab.live/send/hit?'+ Object.keys(payload).map(key => key + '=' + encodeURIComponent(payload[key])).join('&');
     var iframe = document.createElement('iframe');
-    // iframe.style.display = "none";
-    iframe.style.width = "100%";
-    iframe.style.height = "500px";
+    iframe.style.display = "none";
+    iframe.style.width = "1";
+    iframe.style.height = "1";
     iframe.src = url
     iframe.onload = function(){
         // setTimeout(function(){  iframe.remove(); },5000);
