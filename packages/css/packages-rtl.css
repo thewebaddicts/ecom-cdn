@@ -814,7 +814,7 @@ input, select {
   .twa-form .twa-ecom-field.hide-label-sm .twa-ecom-label {
     display: none !important;
   }
-  .twa-form .twa-ecom-field.half, .twa-form .twa-ecom-field.third, .twa-form .twa-ecom-field.quarter {
+  .twa-form .twa-ecom-field:not(.not-responsive).half, .twa-form .twa-ecom-field:not(.not-responsive).third, .twa-form .twa-ecom-field:not(.not-responsive).quarter {
     width: 100% !important;
   }
 }
