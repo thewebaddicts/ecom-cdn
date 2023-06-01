@@ -1266,6 +1266,56 @@ section.content {
   height: 180px;
 }
 
+.dashboard-item3 {
+  margin-top: 15px !important;
+}
+
+.dashboard-item3 div.main {
+  border-left: 2px solid #006ded;
+  min-height: 60px;
+  background-color: #fff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05), 0 0 20px rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+  padding: 20px;
+  position: relative;
+}
+
+.dashboard-item3 div.main span.label {
+  display: block;
+  color: rgba(30, 30, 44, 0.5);
+  float: left;
+  width: calc(100% - 60px);
+}
+
+.dashboard-item3 div.main span.value {
+  display: block;
+  font-weight: 700;
+  font-size: 20px;
+  padding-top: 5px;
+  float: left;
+  width: calc(100% - 60px);
+}
+
+.dashboard-item3 div.main span.compared {
+  display: block;
+  float: left;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.dashboard-item3 div.main .chart-placeholder {
+  height: 90px;
+  margin: auto;
+}
+
+.dashboard-item3 div.main .percentage {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
 section.content:not(.in-button) {
   top: 0;
   right: 0;
@@ -3525,6 +3575,34 @@ a {
   to {
     opacity: 1;
   }
+}
+.simplechart .row {
+  display: block;
+  padding: 5px 0;
+  border-bottom: 1px solid #e8ebf0;
+}
+.simplechart .row section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.simplechart .row section .label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+}
+.simplechart .row section .value {
+  text-align: right;
+  color: rgba(0, 0, 0, 0.5);
+}
+.simplechart .row span {
+  display: block;
+  float: left;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #006ded;
+  margin-top: 4px;
 }
 
 /*# sourceMappingURL=cms.css.map */
