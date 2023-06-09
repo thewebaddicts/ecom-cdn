@@ -277,32 +277,43 @@ function setCookie(cname, cvalue, exdays) {
 function initializeComponents(){
     InitializeMoreMenu();
     $('.ui.checkbox').checkbox();
-    $('select.dropdown:not(.upwards)').dropdown();
-    $('select.dropdown.upwards').dropdown({
+    
+    $('select.dropdown:not(.upwards):not([remote_field])').dropdown();
+    $('select.dropdown.upwards:not([remote_field])').dropdown({
         direction: 'upward',
         clearable: false
     });
 
-    $('.ui.dropdown.upwards.right').dropdown({
+    $('.ui.dropdown.upwards.right:not([remote_field])').dropdown({
         clearable: true,
         fullTextSearch : true,
         direction: 'upward'
     });
-    $('.ui.dropdown.upwards:not(.left)').dropdown({
+    $('.ui.dropdown.upwards:not(.left):not([remote_field])').dropdown({
         clearable: true,
         direction: 'upward'
     });
-    $('.ui.dropdown:not(.upwards):not(.notclearable)').dropdown({
+    $('.ui.dropdown:not(.upwards):not(.notclearable):not([remote_field])').dropdown({
         clearable: true,
         fullTextSearch : true
 
     });
-    $('.ui.dropdown.notclearable:not(.upwards)').dropdown({
+    $('.ui.dropdown.notclearable:not(.upwards):not([remote_field])').dropdown({
     });
-    $('.dropdown-menu .dropdown:not(.upwards)').dropdown({
+    $('.dropdown-menu .dropdown:not(.upwards):not([remote_field])').dropdown({
         action: 'hide',
         clearable: true,
         fullTextSearch : true
+    });
+
+    $('[remote_field]').each(function(){
+        $(this).dropdown({
+            clearable: false,
+            apiSettings: {
+                url: '/cms/render/'+$(this).attr("remote_field")+'/options?query={query}',
+                cache : false
+            }
+        });
     });
 
 
