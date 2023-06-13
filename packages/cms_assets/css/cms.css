@@ -3605,4 +3605,128 @@ a {
   margin-top: 4px;
 }
 
+.notifications-preview h1 {
+  margin: 0;
+  margin-left: 10px;
+  padding: 10px 0;
+  font-size: 20px;
+}
+.notifications-preview .verification {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.notifications-preview .verification div {
+  padding: 5px 10px 0 10px;
+}
+.notifications-preview .verification div i {
+  color: #dc0000;
+  margin-right: 4px;
+}
+.notifications-preview .verification div.positive i {
+  color: #399a7f;
+}
+.notifications-preview .email_preview {
+  width: 100%;
+  max-width: 800px;
+}
+.notifications-preview .email_preview .header {
+  padding: 20px;
+  background-color: #f6f8fb;
+}
+.notifications-preview .email_preview .header h2 {
+  font-size: 20px;
+}
+.notifications-preview .push_preview {
+  display: flex;
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+.notifications-preview .push_preview p {
+  border-radius: 5px;
+  background-color: #e8ebf0;
+  line-height: 1.25;
+  max-width: 75%;
+  padding: 15px 20px;
+  position: relative;
+  word-wrap: break-word;
+}
+.notifications-preview .sms_preview {
+  display: flex;
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+.notifications-preview .sms_preview p {
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  max-width: 75%;
+  padding: 15px 20px;
+  position: relative;
+  word-wrap: break-word;
+}
+.notifications-preview .sms_preview p::before,
+.notifications-preview .sms_preview p::after {
+  bottom: -0.1rem;
+  content: "";
+  height: 1rem;
+  position: absolute;
+}
+.notifications-preview .sms_preview p.from-me {
+  align-self: flex-end;
+  background-color: #248bf5;
+  color: #fff;
+}
+.notifications-preview .sms_preview p.from-me::before {
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  border-right: 1rem solid #248bf5;
+  right: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+.notifications-preview .sms_preview p.from-me::after {
+  background-color: #fff;
+  border-bottom-left-radius: 0.5rem;
+  right: -40px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+.notifications-preview .sms_preview p[class^=from-] {
+  margin: 0.5rem 0;
+  margin-top: 0px;
+  width: fit-content;
+}
+.notifications-preview .sms_preview p.from-me ~ p.from-me {
+  margin: 0.25rem 0 0;
+}
+.notifications-preview .sms_preview p.from-me ~ p.from-me:not(:last-child) {
+  margin: 0.25rem 0 0;
+}
+.notifications-preview .sms_preview p.from-me ~ p.from-me:last-child {
+  margin-bottom: 0.5rem;
+}
+.notifications-preview .sms_preview p.from-them {
+  align-items: flex-start;
+  background-color: #e8ebf0;
+  color: #000;
+}
+.notifications-preview .sms_preview p.from-them:before {
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  border-left: 1rem solid #e8ebf0;
+  left: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+.notifications-preview .sms_preview p.from-them::after {
+  background-color: #fff;
+  border-bottom-right-radius: 0.5rem;
+  left: 20px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+.notifications-preview .sms_preview p[class^=from-].emoji {
+  background: none;
+  font-size: 2.5rem;
+}
+.notifications-preview .sms_preview p[class^=from-].emoji::before {
+  content: none;
+}
+
 /*# sourceMappingURL=cms.css.map */
