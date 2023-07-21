@@ -10,47 +10,53 @@ function ShowMessage(Title,Text){
 }
 
 function ShowIframe(link,maxwidth){
-    $.fancybox.open({
-        src  : link,
-        type : 'iframe',
-        opts : {
-            iframe:{
-                css:{
-                    width: maxwidth,
-                }
-            },
-        }
-    });
+   Fancybox.show(
+       [
+           {
+               src  : link,
+               type : 'iframe',
+               opts : {
+                   iframe:{
+                       css:{
+                           width: maxwidth,
+                       }
+                   },
+               }
+           }
+       ]
+   )
 }
 
 
 
 function ShowIframeCMSForm(link,maxwidth,entityFieldID){
-    Fancybox.show({
-        src  : link,
-        type : 'iframe',
-        scrolling : 'yes',
-        preload:true,
-        opts : {
-            iframe:{
-                css:{
-                    width: maxwidth,
+    Fancybox.show([
+        {
+            src  : link,
+            type : 'iframe',
+            scrolling : 'yes',
+            preload:true,
+            opts : {
+                iframe:{
+                    css:{
+                        width: maxwidth,
+                    }
+                },
+                baseClass: "transparent",
+                beforeClose : function( instance, current ) {
+                    ShowFieldLoader($('#select-field-'+entityFieldID));
+                    $.post('/cms/form/field/'+entityFieldID,{ },function(data){
+                        $('#select-field-'+entityFieldID).replaceWith(data);
+
+                        $('#select-field-'+entityFieldID+' .ui.dropdown').dropdown({
+                            clearable: true,
+                        });
+
+                    })
                 }
-            },
-            baseClass: "transparent",
-            beforeClose : function( instance, current ) {
-                ShowFieldLoader($('#select-field-'+entityFieldID));
-                $.post('/cms/form/field/'+entityFieldID,{ },function(data){
-                    $('#select-field-'+entityFieldID).replaceWith(data);
-
-                    $('#select-field-'+entityFieldID+' .ui.dropdown').dropdown({
-                        clearable: true,
-                    });
-
-                })
             }
         }
-    });
+    ]);
 }
 
 
@@ -277,7 +283,7 @@ function setCookie(cname, cvalue, exdays) {
 function initializeComponents(){
     InitializeMoreMenu();
     $('.ui.checkbox').checkbox();
-    
+
     $('select.dropdown:not(.upwards):not([remote_field])').dropdown();
     $('select.dropdown.upwards:not([remote_field])').dropdown({
         direction: 'upward',
