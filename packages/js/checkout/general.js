@@ -119,7 +119,8 @@ function TWACART_updateInformation(lot_id,key,value){
         type: 'post',
         headers: {
             'token' : $("meta[name=token]").attr("content"),
-            'store' : $("meta[name=storeID]").attr("content")
+            'store' : $("meta[name=storeID]").attr("content"),
+            'warehouse' : $("meta[name=warehouseID]").attr("content")
         },
         data: {
             'lot_id' : lot_id,
