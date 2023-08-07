@@ -10,53 +10,47 @@ function ShowMessage(Title,Text){
 }
 
 function ShowIframe(link,maxwidth){
-   Fancybox.show(
-       [
-           {
-               src  : link,
-               type : 'iframe',
-               opts : {
-                   iframe:{
-                       css:{
-                           width: maxwidth,
-                       }
-                   },
-               }
-           }
-       ]
-   )
+    $.fancybox.open({
+        src  : link,
+        type : 'iframe',
+        opts : {
+            iframe:{
+                css:{
+                    width: maxwidth,
+                }
+            },
+        }
+    });
 }
 
 
 
 function ShowIframeCMSForm(link,maxwidth,entityFieldID){
-    Fancybox.show([
-        {
-            src  : link,
-            type : 'iframe',
-            scrolling : 'yes',
-            preload:true,
-            opts : {
-                iframe:{
-                    css:{
-                        width: maxwidth,
-                    }
-                },
-                baseClass: "transparent",
-                beforeClose : function( instance, current ) {
-                    ShowFieldLoader($('#select-field-'+entityFieldID));
-                    $.post('/cms/form/field/'+entityFieldID,{ },function(data){
-                        $('#select-field-'+entityFieldID).replaceWith(data);
-
-                        $('#select-field-'+entityFieldID+' .ui.dropdown').dropdown({
-                            clearable: true,
-                        });
-
-                    })
+    $.fancybox.open({
+        src  : link,
+        type : 'iframe',
+        scrolling : 'yes',
+        opts : {
+            iframe:{
+                preload : false,
+                css:{
+                    width: maxwidth,
                 }
+            },
+            baseClass: "transparent",
+            beforeClose : function( instance, current ) {
+                ShowFieldLoader($('#select-field-'+entityFieldID));
+                $.post('/cms/form/field/'+entityFieldID,{ },function(data){
+                    $('#select-field-'+entityFieldID).replaceWith(data);
+
+                    $('#select-field-'+entityFieldID+' .ui.dropdown').dropdown({
+                        clearable: true,
+                    });
+
+                })
             }
         }
-    ]);
+    });
 }
 
 
@@ -363,6 +357,39 @@ function initializeComponents(){
         ;
     })
 
+    $('.dropdown-trigger').dropdown({
+        alignment : "right",
+        constrainWidth: false
+    });
+
+
+    $("td.search input").on('keyup', function (e) {
+        if (e.keyCode === 13) {
+            $('#grid-form').submit();
+        }
+    });
+
+    $('tbody.sortable').sortable({
+        axis: "y",
+        connectWith: "#operations",
+        forceHelperSize: true,
+        placeholder: "grid-drop-highlight",
+        handle: '.sort-handle',
+        update: function(event, ui) { onSort(event, ui,'{{ csrf_token() }}'); }
+    })
+
+
+    $('.grid-row-checkbox').on('change',function(){
+        selectRowCheckbox($(this).val());
+    })
+
+
+    $('table.grid th').click(function(){
+        if($(this).attr('data-link')){
+            window.location=$(this).attr('data-link');
+        }
+    });
+
 }
 
 
@@ -519,6 +546,152 @@ function InitializeCMSSearch(json) {
 }
 
 
+
+
+
+
+
+
+
+function onSort(event, ui, csrf){
+    $.post('/cms/ajax/grid/order',{ _token: csrf, prev: ui.item.prev().attr('data-attr-id'), next: ui.item.next().attr('data-attr-id'), current: ui.item.attr('data-attr-id'), page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+}
+
+
+function selectRowCheckbox(id){
+
+    if($('[data-attr-id="'+id+'"]').find('input[type="checkbox"]').is(":checked")){
+        $('[data-attr-id="'+id+'"]').addClass('selected');
+    }else{
+        $('[data-attr-id="'+id+'"]').removeClass('selected');
+    }
+
+
+    if($('.grid-row-checkbox:checked').length == 1){
+        $('.main-actions').hide();
+        $('.multirows-actions').show();
+    }
+    if($('.grid-row-checkbox:checked').length == 0){
+        $('.main-actions').show();
+        $('.multirows-actions').hide();
+    }
+}
+
+
+function reinitializeMainActions(){
+    $('.main-actions').show();
+    $('.multirows-actions').hide();
+}
+
+function doDelete(id){
+    console.log(id);
+    let isArray = Array.isArray(id);
+    if(!isArray){
+        $('.row-'+id).slideUp(1000);
+        $.post('/cms/ajax/grid/delete',{ _token: '{{ csrf_token() }}', current: id,  page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+    }else{
+        id.forEach(function(value){
+            $('.row-'+value).slideUp(1000);
+        })
+        $.post('/cms/ajax/grid/delete',{ _token: '{{ csrf_token() }}', current: id,  page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+    }
+    reinitializeMainActions();
+}
+
+
+function doArchive(id){
+    console.log(id);
+    let isArray = Array.isArray(id);
+    if(!isArray){
+        $('.row-'+id).slideUp(1000);
+        $.post('/cms/ajax/grid/archive',{ _token: '{{ csrf_token() }}', current: id,  page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+    }else{
+        id.forEach(function(value){
+            $('.row-'+value).slideUp(1000);
+        })
+        $.post('/cms/ajax/grid/archive',{ _token: '{{ csrf_token() }}', current: id,  page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+    }
+    reinitializeMainActions();
+
+}
+
+function doUnArchive(id){
+    let isArray = Array.isArray(id);
+    if(!isArray){
+        $('.row-'+id).slideUp(1000);
+        $.post('/cms/ajax/grid/unarchive',{ _token: '{{ csrf_token() }}', current: id,  page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+    }else{
+        id.forEach(function(value){
+            $('.row-'+value).slideUp(1000);
+        })
+        $.post('/cms/ajax/grid/unarchive',{ _token: '{{ csrf_token() }}', current: id,  page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+    }
+    reinitializeMainActions();
+
+}
+
+
+function doDeleteCatalogue(familyGroupID){
+    console.log(familyGroupID);
+    let isArray = Array.isArray(familyGroupID);
+    if(!isArray){
+        $('tr[data-attr-id='+familyGroupID+']').slideUp(1000);
+    }else {
+        familyGroupID.forEach(function (value) {
+            $('tr[data-attr-id='+value+']').slideUp(1000);
+        })
+    }
+    $.post('/cms/ajax/catalogue/grid/delete',{ _token: '{{ csrf_token() }}', current: familyGroupID,  page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+}
+
+function doArchiveCatalogue(familyGroupID){
+    let isArray = Array.isArray(familyGroupID);
+    if(!isArray){
+        $('.row-'+familyGroupID).slideUp(1000);
+    }else {
+        familyGroupID.forEach(function (value) {
+            $('.row-' + value).slideUp(1000);
+        })
+    }
+    $.post('/cms/ajax/catalogue/grid/archive',{ _token: '{{ csrf_token() }}', current: familyGroupID,  page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+}
+function doUnArchiveCatalogue(familyGroupID){
+    let isArray = Array.isArray(familyGroupID);
+    if(!isArray){
+        $('.row-'+familyGroupID).slideUp(1000);
+    }else {
+        familyGroupID.forEach(function (value) {
+            $('.row-' + value).slideUp(1000);
+        })
+    }
+    $.post('/cms/ajax/catalogue/grid/unarchive',{ _token: '{{ csrf_token() }}', current: familyGroupID,  page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+}
+//
+// $("[data-fancybox]").fancybox({
+//     iframe : {
+//         css : {
+//             width : '600px',
+//             height: '300px'
+//         }
+//     }
+// });
+
+
+function toggleSelectAllCheckboxes(elem){
+    if($(elem).is(':checked')){
+        $('.grid-row-checkbox').each(function(){
+            $(this).prop('checked',true);
+            selectRowCheckbox($(this).val());
+        });
+    }else{
+        $('.grid-row-checkbox').each(function(){
+            $(this).prop('checked',false);
+            selectRowCheckbox($(this).val());
+        });
+    }
+}
+
+
 function drawerOpen(url,type = false){
     if(!type){ type = "drawer-right"; }
     ShowLoader();
@@ -554,4 +727,3 @@ function drawerClose(type){
         $('.drawer-mask.'+type).remove();
     },500);
 }
-
