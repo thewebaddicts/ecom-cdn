@@ -1729,10 +1729,13 @@ section.content:not(.in-button) .content-header .action {
   padding: 3px 0 0 5px;
   opacity: 1;
 }
-.grid-adjuster .grid-wrapper .grid:not(.no-sorting) th:hover {
+.grid-adjuster .grid-wrapper .grid:not(.no-sorting) th.operations {
+  cursor: default;
+}
+.grid-adjuster .grid-wrapper .grid:not(.no-sorting) th:not(.operations):hover {
   background-color: rgba(0, 0, 0, 0.15);
 }
-.grid-adjuster .grid-wrapper .grid:not(.no-sorting) th:hover span.sort-indicator {
+.grid-adjuster .grid-wrapper .grid:not(.no-sorting) th:not(.operations):hover span.sort-indicator {
   opacity: 1;
 }
 .grid-adjuster .grid-wrapper .grid td {
@@ -3727,6 +3730,12 @@ a {
 }
 .notifications-preview .sms_preview p[class^=from-].emoji::before {
   content: none;
+}
+
+.operations-menu .menu {
+  position: absolute;
+  right: 80px !important;
+  left: unset !important;
 }
 
 /*# sourceMappingURL=cms.css.map */
