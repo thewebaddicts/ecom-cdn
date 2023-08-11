@@ -375,7 +375,7 @@ function initializeComponents(){
         forceHelperSize: true,
         placeholder: "grid-drop-highlight",
         handle: '.sort-handle',
-        update: function(event, ui) { onSort(event, ui,'{{ csrf_token() }}'); }
+        update: function(event, ui) { onSort(event, ui); }
     })
 
 
@@ -553,8 +553,8 @@ function InitializeCMSSearch(json) {
 
 
 
-function onSort(event, ui, csrf){
-    $.post('/cms/ajax/grid/order',{ _token: csrf, prev: ui.item.prev().attr('data-attr-id'), next: ui.item.next().attr('data-attr-id'), current: ui.item.attr('data-attr-id'), page: '<?php echo $page->id; ?>'  },function(data){ console.log(data); })
+function onSort(page,event, ui, csrf){
+    $.post('/cms/ajax/grid/order',{ _token: csrf, prev: ui.item.prev().attr('data-attr-id'), next: ui.item.next().attr('data-attr-id'), current: ui.item.attr('data-attr-id'), page: ui.item.prev().attr('data-entity-id')  },function(data){ console.log(data); })
 }
 
 
